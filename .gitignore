@@ -39,3 +39,5 @@ next-env.d.ts
 # Additional entries
 node_modules/
 .next/
+
+.vercel

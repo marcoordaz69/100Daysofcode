@@ -43,22 +43,22 @@ export default function AboutSection() {
       <ContentContainer>
         <Title>About 100 Days of Code</Title>
         <Paragraph>
-          Welcome to my 100 Days of Code journey! This website is a digital canvas where I document my commitment to coding every day for 100 consecutive days. It's a challenge designed to improve my skills, build a coding habit, and share my progress with the world.
+          Welcome to my 100 Days of Code journey! This website is a digital canvas where I document my commitment to coding every day for 100 consecutive days. It&apos;s a challenge designed to improve my skills, build a coding habit, and share my progress with the world.
         </Paragraph>
         <Paragraph>
           Each day, I take on a new coding project or continue working on ongoing ones. These projects range from small scripts to more complex applications, covering various aspects of web development, algorithms, and software engineering.
         </Paragraph>
         <Paragraph>
-          On this site, you'll find:
+          On this site, you&apos;ll find:
         </Paragraph>
         <ul>
           <li>Daily logs of my coding activities</li>
-          <li>Showcase of projects I'm working on</li>
+          <li>Showcase of projects I&apos;m working on</li>
           <li>Insights and lessons learned along the way</li>
           <li>Resources and tips for fellow coders</li>
         </ul>
         <Paragraph>
-          Whether you're a fellow coder, a curious observer, or someone considering your own coding challenge, I hope my journey inspires and motivates you. Feel free to explore my projects, read about my daily experiences, and connect with me as I navigate this exciting 100-day adventure.
+          Whether you&apos;re a fellow coder, a curious observer, or someone considering your own coding challenge, I hope my journey inspires and motivates you. Feel free to explore my projects, read about my daily experiences, and connect with me as I navigate this exciting 100-day adventure.
         </Paragraph>
         <ButtonContainer>
           <Button className="group mr-4 bg-yellow-500 hover:bg-yellow-600 text-black">

@@ -1,11 +1,10 @@
 "use client"
 
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import Link from 'next/link'
-import { Button } from '../components/UI/button'
+import styled from 'styled-components'
 import ProjectCard from '@/components/ProjectCard'
 import projectsData from '@/data/projects.json'
-import styled from 'styled-components'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const ProjectsContainer = styled.div`
@@ -47,17 +46,11 @@ const MainContent = styled.main`
   z-index: 10;
 `;
 
-const FilterContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-bottom: 2rem;
-`;
-
 const ProjectGrid = styled(motion.div)`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 2rem;
-  align-items: start; // This will align the tops of the cards
+  align-items: start;
 `;
 
 const Footer = styled.footer`
@@ -67,26 +60,20 @@ const Footer = styled.footer`
   z-index: 10;
 `;
 
-const LoadMoreButton = styled(Button)`
-  margin: 2rem auto;
-  display: block;
-`;
-
 type Project = {
-  id: number
-  title: string
-  description: string
-  category: string
-  link: string
-  image: string
-  day: number
-  technologies: string[]
-}
+  id: number;
+  title: string;
+  description: string;
+  category: string;
+  link?: string;
+  image: string;
+  xTweetId?: string;
+  day?: number;  // Make day optional
+  technologies?: string[];
+};
 
 export default function ProjectsPage() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
-  const [filter, setFilter] = useState("All")
-  const [visibleProjects, setVisibleProjects] = useState(6)
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -129,16 +116,6 @@ export default function ProjectsPage() {
     return () => clearInterval(interval)
   }, [])
 
-  const filteredProjects = filter === "All" 
-    ? projectsData 
-    : projectsData.filter(p => p.category === filter)
-
-  const visibleFilteredProjects = filteredProjects.slice(0, visibleProjects)
-
-  const loadMore = () => {
-    setVisibleProjects(prev => prev + 6)
-  }
-
   return (
     <ProjectsContainer>
       <StyledCanvas ref={canvasRef} />
@@ -156,31 +133,13 @@ export default function ProjectsPage() {
       </Navigation>
 
       <MainContent>
-        <FilterContainer>
-          {["All", "Web", "Mobile", "Other"].map(category => (
-            <Button
-              key={category}
-              onClick={() => {
-                setFilter(category)
-                setVisibleProjects(6)  // Reset visible projects when changing filter
-              }}
-              className={`${
-                filter === category
-                  ? 'bg-yellow-400 text-black'
-                  : 'border-yellow-400 text-yellow-400'
-              } hover:bg-yellow-500 hover:text-black mx-2`}
-            >
-              {category}
-            </Button>
-          ))}
-        </FilterContainer>
         <AnimatePresence>
           <ProjectGrid
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            {filteredProjects.map((project: Project) => (
+            {projectsData.map((project: Project) => (
               <motion.div
                 key={project.id}
                 initial={{ opacity: 0, y: 20 }}
@@ -188,14 +147,14 @@ export default function ProjectsPage() {
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.5 }}
               >
-                <ProjectCard project={project} />
+                <ProjectCard project={{
+                  ...project,
+                  day: project.day || 0 // Ensure day is always a number
+                }} />
               </motion.div>
             ))}
           </ProjectGrid>
         </AnimatePresence>
-        {visibleProjects < filteredProjects.length && (
-          <LoadMoreButton onClick={loadMore}>Load More</LoadMoreButton>
-        )}
       </MainContent>
 
       <Footer>

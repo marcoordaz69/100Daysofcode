@@ -1,0 +1,5 @@
+{
+    "projectsFolder": "./pages/projects",
+    "imagesFolder": "./public/images/projects",
+    "postsFolder": "./data/posts"
+}
