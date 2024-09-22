@@ -1,77 +1,87 @@
 [
-  {
-    "id": 1,
-    "title": "Day 1: AI Meme Generator",
-    "description": "AI meme generator using Stable Diffusion and openai's API.",
-    "category": "Web",
-    "image": "/images/projects/day1.png",
-    "xTweetId": "1836082249961558290",
-    "day": 1,
-    "technologies": [
-      "Next.js",
-      "React",
-      "TypeScript",
-      "styled-components"
-    ]
-  },
-  {
-    "id": 2,
-    "title": "Day 2: Geometry wars clone",
-    "description": "Geometry wars clone using Phaser and Next.js.",
-    "category": "Web",
-    "image": "/images/projects/day1.png",
-    "xTweetId": "1836457638550474977",
-    "day": 2,
-    "technologies": [
-      "Next.js",
-      "React",
-      "TypeScript",
-      "styled-components"
-    ]
-  },
-  {
-    "id": 3,
-    "title": "Day 3: AI Storybook Generator",
-    "description": "AI Storybook Generator using Flux schnell and Openai's API.",
-    "category": "Web",
-    "image": "/images/projects/day1.png",
-    "xTweetId": "1837001857765638655",
-    "day": 3,
-    "technologies": [
-      "Next.js",
-      "React",
-      "TypeScript",
-      "styled-components"
-    ]
-  },
-  {
-    "id": 4,
-    "title": "Day 4: Family Chore App",
-    "description": "Family Chore App with Auth and multi-user support.",
-    "category": "Web",
-    "image": "/images/projects/day1.png",
-    "xTweetId": "1837363447430009308",
-    "day": 4,
-    "technologies": [
-      "Next.js",
-      "React",
-      "TypeScript",
-      "styled-components"
-    ]
-  },
-  {
-    "id": 5,
-    "title": "Day 5: 100 Days of Code website",
-    "description": "100 Days of Code website to track my progress.",
-    "category": "Web",
-    "image": "/images/projects/day1.png",
-    "xTweetId": "1837655797301760126",
-    "day": 5,
-    "technologies": [
-      "Next.js",
-      "React",
-      "TypeScript",
-      "styled-components"
-    ]
-  }
+    {
+        "id":  1,
+        "title":  "Day 1: AI Meme Generator",
+        "description":  "AI meme generator using Stable Diffusion and openai\u0027s API.",
+        "category":  "Web",
+        "image":  "/images/projects/day1.png",
+        "xTweetId":  "1836082249961558290",
+        "day":  1,
+        "technologies":  [
+                             "Next.js",
+                             "React",
+                             "TypeScript",
+                             "styled-components"
+                         ]
+    },
+    {
+        "id":  2,
+        "title":  "Day 2: Geometry wars clone",
+        "description":  "Geometry wars clone using Phaser and Next.js.",
+        "category":  "Web",
+        "image":  "/images/projects/day1.png",
+        "xTweetId":  "1836457638550474977",
+        "day":  2,
+        "technologies":  [
+                             "Next.js",
+                             "React",
+                             "TypeScript",
+                             "styled-components"
+                         ]
+    },
+    {
+        "id":  3,
+        "title":  "Day 3: AI Storybook Generator",
+        "description":  "AI Storybook Generator using Flux schnell and Openai\u0027s API.",
+        "category":  "Web",
+        "image":  "/images/projects/day1.png",
+        "xTweetId":  "1837001857765638655",
+        "day":  3,
+        "technologies":  [
+                             "Next.js",
+                             "React",
+                             "TypeScript",
+                             "styled-components"
+                         ]
+    },
+    {
+        "id":  4,
+        "title":  "Day 4: Family Chore App",
+        "description":  "Family Chore App with Auth and multi-user support.",
+        "category":  "Web",
+        "image":  "/images/projects/day1.png",
+        "xTweetId":  "1837363447430009308",
+        "day":  4,
+        "technologies":  [
+                             "Next.js",
+                             "React",
+                             "TypeScript",
+                             "styled-components"
+                         ]
+    },
+    {
+        "id":  5,
+        "title":  "Day 5: 100 Days of Code website",
+        "description":  "100 Days of Code website to track my progress.",
+        "category":  "Web",
+        "image":  "/images/projects/day1.png",
+        "xTweetId":  "1837655797301760126",
+        "day":  5,
+        "technologies":  [
+                             "Next.js",
+                             "React",
+                             "TypeScript",
+                             "styled-components"
+                         ]
+    },
+    {
+        "date":  "2024-09-22",
+        "title":  "Test Project",
+        "description":  "This is a test",
+        "id":  "Test-Project",
+        "techStack":  [
+                          "Next.js",
+                          "TypeScript"
+                      ]
+    }
 ]
