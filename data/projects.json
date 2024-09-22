@@ -1,26 +1,33 @@
 [
-    {
-        "id": 1,
-        "title": "Project One",
-        "description": "A web application for task management.",
-        "link": "https://github.com/yourusername/project-one",
-        "image": "/images/project-one.png",
-        "category": "Web"
-      },
-      {
-        "id": 2,
-        "title": "Project Two",
-        "description": "A mobile app for fitness tracking.",
-        "link": "https://github.com/yourusername/project-two",
-        "image": "/images/project-two.png",
-        "category": "Mobile"
-      },
-      {
-        "id": 3,
-        "title": "Project Three",
-        "description": "An IoT project for home automation.",
-        "link": "https://github.com/yourusername/project-three",
-        "image": "/images/project-three.png",
-        "category": "Other"
-      }
+  {
+    "id": 1,
+    "title": "Day 1: AI Meme Generator",
+    "description": "AI meme generator using Stable Diffusion and openai's API.",
+    "category": "Web",
+    "image": "/images/projects/day1.png",
+    "xTweetId": "1836082249961558290",
+    "day": 1,
+    "technologies": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "styled-components"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Geometry wars clone",
+    "description": "2D geometry shooter game .",
+    "image": "/images/project-two.png",
+    "xTweetId": "1836457638550474977",
+    "category": "Mobile"
+  },
+  {
+    "id": 3,
+    "title": "Project Three",
+    "description": "An IoT project for home automation.",
+    "link": "https://github.com/yourusername/project-three",
+    "image": "/images/project-three.png",
+    "category": "Other"
+  }
 ]

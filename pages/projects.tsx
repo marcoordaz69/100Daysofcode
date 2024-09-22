@@ -1,12 +1,12 @@
-// pages/projects.tsx
 "use client"
 
 import React, { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
-import { Button } from '@/components/UI/button'
-import ProjectCard from '@/components/ProjectCard';
-import projectsData from '../data/projects.json'
+import { Button } from '../components/UI/button'
+import ProjectCard from '@/components/ProjectCard'
+import projectsData from '@/data/projects.json'
 import styled from 'styled-components'
+import { motion, AnimatePresence } from 'framer-motion'
 
 const ProjectsContainer = styled.div`
   min-height: 100vh;
@@ -53,7 +53,7 @@ const FilterContainer = styled.div`
   margin-bottom: 2rem;
 `;
 
-const ProjectGrid = styled.div`
+const ProjectGrid = styled(motion.div)`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 2rem;
@@ -66,18 +66,26 @@ const Footer = styled.footer`
   z-index: 10;
 `;
 
+const LoadMoreButton = styled(Button)`
+  margin: 2rem auto;
+  display: block;
+`;
+
 type Project = {
   id: number
   title: string
   description: string
   category: string
   link: string
-  image: string  // Add this line
+  image: string
+  day: number
+  technologies: string[]
 }
 
 export default function ProjectsPage() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const [filter, setFilter] = useState("All")
+  const [visibleProjects, setVisibleProjects] = useState(6)
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -97,7 +105,7 @@ export default function ProjectsPage() {
     }
 
     function draw() {
-      if (!ctx || !canvas) return  // Add this line
+      if (!ctx || !canvas) return
 
       ctx.fillStyle = 'rgba(0, 0, 0, 0.05)'
       ctx.fillRect(0, 0, canvas.width, canvas.height)
@@ -120,7 +128,15 @@ export default function ProjectsPage() {
     return () => clearInterval(interval)
   }, [])
 
-  const filteredProjects = filter === "All" ? projectsData : projectsData.filter(p => p.category === filter)
+  const filteredProjects = filter === "All" 
+    ? projectsData 
+    : projectsData.filter(p => p.category === filter)
+
+  const visibleFilteredProjects = filteredProjects.slice(0, visibleProjects)
+
+  const loadMore = () => {
+    setVisibleProjects(prev => prev + 6)
+  }
 
   return (
     <ProjectsContainer>
@@ -143,19 +159,42 @@ export default function ProjectsPage() {
           {["All", "Web", "Mobile", "Other"].map(category => (
             <Button
               key={category}
-              onClick={() => setFilter(category)}
-              variant={filter === category ? "default" : "outline"}
-              className={`${filter === category ? 'bg-yellow-400 text-black' : 'border-yellow-400 text-yellow-400'} hover:bg-yellow-500 hover:text-black mx-2`}
+              onClick={() => {
+                setFilter(category)
+                setVisibleProjects(6)  // Reset visible projects when changing filter
+              }}
+              className={`${
+                filter === category
+                  ? 'bg-yellow-400 text-black'
+                  : 'border-yellow-400 text-yellow-400'
+              } hover:bg-yellow-500 hover:text-black mx-2`}
             >
               {category}
             </Button>
           ))}
         </FilterContainer>
-        <ProjectGrid>
-          {filteredProjects.map((project: Project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
-        </ProjectGrid>
+        <AnimatePresence>
+          <ProjectGrid
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            {filteredProjects.map((project: Project) => (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.5 }}
+              >
+                <ProjectCard project={project} />
+              </motion.div>
+            ))}
+          </ProjectGrid>
+        </AnimatePresence>
+        {visibleProjects < filteredProjects.length && (
+          <LoadMoreButton onClick={loadMore}>Load More</LoadMoreButton>
+        )}
       </MainContent>
 
       <Footer>
