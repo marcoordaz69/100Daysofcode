@@ -57,6 +57,7 @@ const ProjectGrid = styled(motion.div)`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 2rem;
+  align-items: start; // This will align the tops of the cards
 `;
 
 const Footer = styled.footer`

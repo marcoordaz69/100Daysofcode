@@ -10,16 +10,24 @@ const Card = styled.div`
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
-  height: 800px; // Increased height for all cards
+  min-height: 600px;
+`;
+
+const Title = styled.h3`
+  font-size: 1.2rem;
+  color: ${({ theme }) => theme.colors.text};
+  margin: 1rem;
+  text-align: center;
+  font-weight: 300;
 `;
 
 const MediaContainer = styled.div`
   width: 100%;
-  height: 600px; // Increased height for media content
-  overflow: hidden;
+  flex-grow: 1;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 `;
 
 const ProjectImage = styled.img`
@@ -41,28 +49,18 @@ const XTweetContainer = styled.div`
 `;
 
 const Content = styled.div`
-  padding: 2rem;
+  padding: 1rem;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-grow: 1;
-  justify-content: space-between;
-`;
-
-const Title = styled.h3`
-  font-size: 2rem;
-  color: ${({ theme }) => theme.colors.accent};
-  margin-bottom: 1.5rem;
-  text-align: center;
+  justify-content: center;
 `;
 
 const ViewDetailsButton = styled(Button)`
   background-color: transparent;
-  border: 3px solid ${({ theme }) => theme.colors.accent};
+  border: 1px solid ${({ theme }) => theme.colors.accent};
   color: ${({ theme }) => theme.colors.accent};
-  padding: 1rem 2rem;
-  border-radius: 30px;
-  font-size: 1.3rem;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
   transition: all 0.3s ease;
 
   &:hover {
@@ -99,6 +97,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
 
   return (
     <Card>
+      <Title>{project.title}</Title>
       <MediaContainer>
         {project.xTweetId ? (
           <XTweetContainer>
@@ -113,7 +112,6 @@ const ProjectCard = ({ project }: { project: Project }) => {
         )}
       </MediaContainer>
       <Content>
-        <Title>{project.title}</Title>
         <ViewDetailsButton as={Link} href={`/projects/${project.id}`}>
           View Details
         </ViewDetailsButton>

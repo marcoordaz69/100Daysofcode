@@ -16,7 +16,7 @@
   },
   {
     "id": 2,
-    "title": "Geometry wars clone",
+    "title": "Day 2:Geometry wars clone",
     "description": "2D geometry shooter game .",
     "image": "/images/project-two.png",
     "xTweetId": "1836457638550474977",
@@ -24,10 +24,47 @@
   },
   {
     "id": 3,
-    "title": "Project Three",
-    "description": "An IoT project for home automation.",
-    "link": "https://github.com/yourusername/project-three",
-    "image": "/images/project-three.png",
-    "category": "Other"
+    "title": "Day 3: AI Storybook Generator",
+    "description": "AI Storybook Generator using Flux schnell and Openai's API.",
+    "category": "Web",
+    "image": "/images/projects/day1.png",
+    "xTweetId": "1837001857765638655",
+    "day": 3,
+    "technologies": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "styled-components"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Day 4: Family Chore App",
+    "description": "Family Chore App with Auth and multi-user support.",
+    "category": "Web",
+    "image": "/images/projects/day1.png",
+    "xTweetId": "1837363447430009308",
+    "day": 4,
+    "technologies": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "styled-components"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Day 5: 100 Days of Code website",
+    "description": "100 Days of Code website to track my progress.",
+    "category": "Web",
+    "image": "/images/projects/day1.png",
+    "xTweetId": "1837655797301760126",
+    "day": 5,
+    "technologies": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "styled-components"
+    ]
   }
 ]
