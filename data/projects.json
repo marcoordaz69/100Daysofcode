@@ -75,13 +75,19 @@
                          ]
     },
     {
+        "image":  "/images/projects/day6.png",
+        "id":  6,
+        "technologies":  [
+                             "Next.js",
+                             "React",
+                             "TypeScript",
+                             "OpenAI API"
+                         ],
+        "day":  6,
+        "xTweetId":  "1234567890123456789",
+        "category":  "Web",
+        "description":  "Developed an AI-powered task scheduler using GPT-3",
         "date":  "2024-09-22",
-        "title":  "Test Project",
-        "description":  "This is a test",
-        "id":  "Test-Project",
-        "techStack":  [
-                          "Next.js",
-                          "TypeScript"
-                      ]
+        "title":  "Day 6: AI-Powered Task Scheduler"
     }
 ]
