@@ -16,11 +16,18 @@
   },
   {
     "id": 2,
-    "title": "Day 2:Geometry wars clone",
-    "description": "2D geometry shooter game .",
-    "image": "/images/project-two.png",
+    "title": "Day 2: Geometry wars clone",
+    "description": "Geometry wars clone using Phaser and Next.js.",
+    "category": "Web",
+    "image": "/images/projects/day1.png",
     "xTweetId": "1836457638550474977",
-    "category": "Mobile"
+    "day": 2,
+    "technologies": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "styled-components"
+    ]
   },
   {
     "id": 3,
