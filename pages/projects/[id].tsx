@@ -19,12 +19,14 @@ const PageWrapper = styled.div`
 
 const ProjectContainer = styled.div`
   width: 90%;
-  max-width: 600px;
-  height: 70vh;
+  max-width: 800px; // Increased from 600px
+  height: 80vh; // Increased from 70vh
   background: ${({ theme }) => theme.colors.cardBackground};
   border-radius: 20px;
   overflow: hidden;
   position: relative;
+  display: flex;
+  flex-direction: column;
 `;
 
 const CardContent = styled(motion.div)`
@@ -35,6 +37,7 @@ const CardContent = styled(motion.div)`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow-y: auto; // Allow scrolling if content overflows
 `;
 
 const ProjectTitle = styled.h1`
@@ -45,10 +48,10 @@ const ProjectTitle = styled.h1`
 `;
 
 const ProjectImage = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
+  max-width: 100%;
+  max-height: 70vh; // Limit height to prevent overflow
+  object-fit: contain; // Ensure the entire image is visible
+  margin-bottom: 1rem;
 `;
 
 const TechList = styled.ul`
@@ -125,7 +128,7 @@ const ProjectDetailPage = () => {
             {slides[currentSlide].type === 'image' ? (
               <ProjectImage src={slides[currentSlide].content as string} alt={project.title} />
             ) : (
-              <div style={{ padding: '2rem', maxWidth: '800px', margin: '0 auto' }}>
+              <div style={{ width: '100%', maxWidth: '800px', margin: '0 auto' }}>
                 <ProjectTitle>{project.title}</ProjectTitle>
                 {slides[currentSlide].type === 'technologies' ? (
                   <TechList>

@@ -28,12 +28,13 @@ const MediaContainer = styled.div`
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  margin-bottom: 1rem; // Added margin-bottom
 `;
 
 const ProjectImage = styled.img`
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto; // Changed from 100% to auto
+  object-fit: contain; // Changed from cover to contain
 `;
 
 const XTweetContainer = styled.div`

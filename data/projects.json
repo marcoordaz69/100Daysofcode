@@ -82,10 +82,10 @@
                              "Testing"
                          ],
         "day":  6,
-        "xTweetId":  "1837664280453566802",
-        "category":  "Test",
-        "description":  "This is yet another test project for Day Z of 100 Days of Code",
+        "xTweetId":  "1838106868834873554",
+        "category":  "web",
+        "description":  "using a one note clone to automatically update this project details page. ",
         "date":  "2024-09-22",
-        "title":  "Test Project Z"
+        "title":  "Project detail automation"
     }
 ]
