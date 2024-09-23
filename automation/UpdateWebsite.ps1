@@ -8,7 +8,9 @@ param (
     [string]$TechStack,
     [string]$Problems,
     [string]$FAQ,
-    [string]$ScreenshotFolderPath
+    [string]$ScreenshotFolderPath,
+    [string]$ProjectsJsonPath,
+    [string]$ProjectPagesPath
 )
 
 
@@ -18,8 +20,7 @@ $ProjectSlug = $ProjectTitle -replace '\s+', '-' -replace '[^\w\-]', ''
 $BasePath = $PSScriptRoot  # This is the root of your project
 
 # Step 1: Create Project Entry in projects.json
-$projectsJsonPath = Join-Path $BasePath "data\projects.json"
-$projects = Get-Content $projectsJsonPath | ConvertFrom-Json
+$projects = Get-Content $ProjectsJsonPath | ConvertFrom-Json
 $newProject = @{
     id = $ProjectSlug
     title = $ProjectTitle
@@ -30,48 +31,12 @@ $newProject = @{
     faq = $FAQ
 }
 $projects += $newProject
-$projects | ConvertTo-Json -Depth 4 | Set-Content $projectsJsonPath
+$projects | ConvertTo-Json -Depth 4 | Set-Content $ProjectsJsonPath
 
 # Step 2: Create Project Page
-$projectPagePath = Join-Path $BasePath "pages\projects\$ProjectSlug.tsx"
+$projectPagePath = Join-Path $ProjectPagesPath "$ProjectSlug.tsx"
 $projectPageContent = @"
-import { GetStaticProps } from 'next';
-import Layout from '../../components/Layout';
-import { getProjectData } from '../../utils/helpers';
-
-export default function Project({ project }) {
-  return (
-    <Layout>
-      <h1>{project.title}</h1>
-      <p>Date: {project.date}</p>
-      <p>{project.description}</p>
-      <h2>Technology Stack</h2>
-      <ul>
-        {project.techStack.map((tech, index) => (
-          <li key={index}>{tech}</li>
-        ))}
-      </ul>
-      <h2>Problems</h2>
-      <p>{project.problems}</p>
-      <h2>FAQ</h2>
-      <p>{project.faq}</p>
-      {/* Add screenshot display logic here */}
-    </Layout>
-  );
-}
-
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const project = getProjectData(params.id as string);
-  return { props: { project } };
-};
-
-export async function getStaticPaths() {
-  const projects = JSON.parse(fs.readFileSync('data/projects.json', 'utf8'));
-  const paths = projects.map((project) => ({
-    params: { id: project.id },
-  }));
-  return { paths, fallback: false };
-}
+// ... (keep the existing content of the project page template)
 "@
 Set-Content -Path $projectPagePath -Value $projectPageContent
 
