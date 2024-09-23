@@ -1,13 +1,16 @@
 # UpdateWebsite.ps1
 
 param (
-    [Parameter(Mandatory=$true)]
     [string]$ProjectTitle,
-    [Parameter(Mandatory=$true)]
     [string]$ProjectDescription,
+    [string]$ProjectGoal,
+    [string]$ProjectOutcome,
     [string]$TechStack,
+    [string]$Problems,
+    [string]$FAQ,
     [string]$ScreenshotFolderPath
 )
+
 
 # Variables
 $Date = Get-Date -Format "yyyy-MM-dd"
@@ -23,6 +26,8 @@ $newProject = @{
     date = $Date
     description = $ProjectDescription
     techStack = $TechStack -split ',' | ForEach-Object { $_.Trim() }
+    problems = $Problems
+    faq = $FAQ
 }
 $projects += $newProject
 $projects | ConvertTo-Json -Depth 4 | Set-Content $projectsJsonPath
@@ -46,6 +51,10 @@ export default function Project({ project }) {
           <li key={index}>{tech}</li>
         ))}
       </ul>
+      <h2>Problems</h2>
+      <p>{project.problems}</p>
+      <h2>FAQ</h2>
+      <p>{project.faq}</p>
       {/* Add screenshot display logic here */}
     </Layout>
   );
