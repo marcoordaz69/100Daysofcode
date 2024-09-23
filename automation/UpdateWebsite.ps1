@@ -43,7 +43,21 @@ if ($ScreenshotPath) {
     $destScreenshotPath = Join-Path $BasePath "public\images\projects\day$($highestId + 1).png"
     Copy-Item $ScreenshotPath -Destination $destScreenshotPath
 }
-
+# Add this after copying the screenshot
+if ($ScreenshotPath) {
+    $destScreenshotPath = Join-Path $BasePath "public\images\projects\day$($highestId + 1).png"
+    Copy-Item $ScreenshotPath -Destination $destScreenshotPath
+    
+    # Image processing (requires ImageMagick)
+    $ImageMagickPath = "C:\Program Files\ImageMagick-7.1.1-Q16-HDRI\magick.exe"
+    if (Test-Path $ImageMagickPath) {
+        Write-Host "Processing image..."
+        & $ImageMagickPath $destScreenshotPath -resize "800x800>" -quality 85 $destScreenshotPath
+        Write-Host "Image processed and optimized."
+    } else {
+        Write-Host "ImageMagick not found. Skipping image optimization."
+    }
+}
 # Step 3: Update Git Repository
 Set-Location $BasePath
 git add .

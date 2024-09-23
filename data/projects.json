@@ -89,5 +89,19 @@
         "description":  "Developed an AI-powered task scheduler using GPT-3",
         "date":  "2024-09-22",
         "title":  "Day 6: AI-Powered Task Scheduler"
+    },
+    {
+        "image":  "/images/projects/day7.png",
+        "id":  7,
+        "technologies":  [
+                             "PowerShell",
+                             "Testing"
+                         ],
+        "day":  7,
+        "xTweetId":  "1837664280453566800",
+        "category":  "Test",
+        "description":  "This is a test project for Day X of 100 Days of Code",
+        "date":  "2024-09-22",
+        "title":  "Test Project X"
     }
 ]
