@@ -78,26 +78,10 @@
         "image":  "/images/projects/day6.png",
         "id":  6,
         "technologies":  [
-                             "Next.js",
-                             "React",
-                             "TypeScript",
-                             "OpenAI API"
-                         ],
-        "day":  6,
-        "xTweetId":  "1234567890123456789",
-        "category":  "Web",
-        "description":  "Developed an AI-powered task scheduler using GPT-3",
-        "date":  "2024-09-22",
-        "title":  "Day 6: AI-Powered Task Scheduler"
-    },
-    {
-        "image":  "/images/projects/day7.png",
-        "id":  7,
-        "technologies":  [
                              "PowerShell",
                              "Testing"
                          ],
-        "day":  7,
+        "day":  6,
         "xTweetId":  "1837664280453566800",
         "category":  "Test",
         "description":  "This is a test project for Day X of 100 Days of Code",
