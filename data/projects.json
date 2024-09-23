@@ -87,19 +87,5 @@
         "description":  "This is yet another test project for Day Z of 100 Days of Code",
         "date":  "2024-09-22",
         "title":  "Test Project Z"
-    },
-    {
-        "image":  "/images/projects/day7.png",
-        "id":  7,
-        "technologies":  [
-                             "PowerShell",
-                             "Testing"
-                         ],
-        "day":  7,
-        "xTweetId":  "1837664280453566802",
-        "category":  "Test",
-        "description":  "This is yet another test project for Day Z of 100 Days of Code",
-        "date":  "2024-09-22",
-        "title":  "Test Project Z"
     }
 ]
