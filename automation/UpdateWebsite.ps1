@@ -1,5 +1,3 @@
-# UpdateWebsite.ps1
-
 param (
     [string]$ProjectTitle,
     [string]$ProjectDescription,
@@ -13,11 +11,10 @@ param (
     [string]$ProjectPagesPath
 )
 
-
 # Variables
 $Date = Get-Date -Format "yyyy-MM-dd"
 $ProjectSlug = $ProjectTitle -replace '\s+', '-' -replace '[^\w\-]', ''
-$BasePath = $PSScriptRoot  # This is the root of your project
+$BasePath = $PSScriptRoot
 
 # Step 1: Create Project Entry in projects.json
 $projects = Get-Content $ProjectsJsonPath | ConvertFrom-Json
@@ -29,6 +26,7 @@ $newProject = @{
     techStack = $TechStack -split ',' | ForEach-Object { $_.Trim() }
     problems = $Problems
     faq = $FAQ
+    image = "/images/projects/$ProjectSlug/main.png"  # Add image path
 }
 $projects += $newProject
 $projects | ConvertTo-Json -Depth 4 | Set-Content $ProjectsJsonPath
@@ -44,9 +42,15 @@ Set-Content -Path $projectPagePath -Value $projectPageContent
 if ($ScreenshotFolderPath) {
     $destScreenshotFolder = Join-Path $BasePath "public\images\projects\$ProjectSlug"
     New-Item -ItemType Directory -Force -Path $destScreenshotFolder
+
+    # Copy all screenshots
     Get-ChildItem $ScreenshotFolderPath -Filter *.png | ForEach-Object {
-        # You might want to add image processing here (e.g., resizing)
         Copy-Item $_.FullName -Destination $destScreenshotFolder
+        
+        # Copy the first image as main.png
+        if (-not (Test-Path (Join-Path $destScreenshotFolder "main.png"))) {
+            Copy-Item $_.FullName -Destination (Join-Path $destScreenshotFolder "main.png")
+        }
     }
 }
 
